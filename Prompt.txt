@@ -1,0 +1,359 @@
+Actúa como un Arquitecto de Software Senior especializado en TypeScript, Node.js, Express, PostgreSQL y Angular (últimas versiones estables).
+
+Quiero que desarrolles un proyecto completo siguiendo arquitectura por capas, buenas prácticas, código limpio (Clean Code), principios SOLID cuando sean aplicables y utilizando TypeScript moderno.
+
+# Objetivo
+
+Crear una aplicación para administrar clientes.
+
+La aplicación únicamente debe permitir:
+
+- Agregar clientes.
+- Listar clientes.
+
+No debe existir la funcionalidad de editar ni eliminar.
+
+Todo el proyecto debe quedar listo para ejecutar inmediatamente después de instalar las dependencias.
+
+---
+
+# Tecnologías obligatorias
+
+Backend
+
+- Node.js
+- Express
+- TypeScript
+- PostgreSQL
+- pg (cliente oficial de PostgreSQL)
+- dotenv
+- cors
+
+Frontend
+
+- Angular (última versión estable)
+- TypeScript moderno
+- Standalone Components
+- HttpClient
+- Reactive Forms
+
+Gestor de paquetes
+
+- pnpm
+- pnpm Workspaces
+
+No utilizar npm ni yarn.
+
+---
+
+# Arquitectura del proyecto
+
+Debe implementarse como un monorepo utilizando pnpm Workspaces.
+
+Estructura:
+
+aplicacion/
+
+backend/
+
+frontend/
+
+package.json
+
+pnpm-workspace.yaml
+
+README.md
+
+.env.example
+
+El proyecto debe administrarse completamente desde la carpeta raíz.
+
+---
+
+# Requisito MUY IMPORTANTE
+
+Todo el proyecto debe funcionar utilizando únicamente pnpm.
+
+No quiero entrar a las carpetas backend o frontend para ejecutar comandos.
+
+Debe existir un único punto de entrada para todo el proyecto.
+
+---
+
+## Instalar todo
+
+```
+pnpm install
+```
+
+Debe instalar automáticamente las dependencias del backend y del frontend.
+
+---
+
+## Compilar todo
+
+```
+pnpm build
+```
+
+Debe compilar:
+
+- Backend TypeScript
+- Frontend Angular
+
+Con un único comando.
+
+---
+
+## Ejecutar todo
+
+```
+pnpm start
+```
+
+Debe iniciar simultáneamente:
+
+- Backend
+- Frontend
+
+Utilizando una única terminal.
+
+Puedes utilizar:
+
+- concurrently
+- turbo
+- pnpm recursive
+- cualquier solución profesional compatible con pnpm.
+
+---
+
+# PostgreSQL
+
+Toda la aplicación debe quedar preparada para funcionar con PostgreSQL.
+
+Utilizar exclusivamente:
+
+pg
+
+Crear una clase Database.
+
+Debe utilizar Pool.
+
+Debe existir un único archivo encargado de administrar la conexión.
+
+Toda la configuración debe leerse desde variables de entorno.
+
+Variables:
+
+DB_HOST
+
+DB_PORT
+
+DB_NAME
+
+DB_USER
+
+DB_PASSWORD
+
+Nunca escribir credenciales directamente en el código.
+
+---
+
+# Script SQL
+
+Generar completamente:
+
+CREATE DATABASE
+
+CREATE TABLE clientes
+
+INSERT de prueba opcionales.
+
+---
+
+# Entidad
+
+Cliente
+
+codigo_cliente
+
+nombre_cliente
+
+direccion_cliente
+
+telefono
+
+En PostgreSQL utilizar snake_case.
+
+En TypeScript utilizar camelCase.
+
+---
+
+# Backend
+
+Arquitectura por capas.
+
+src/
+
+controllers/
+
+modules/
+
+persistence/
+
+routes/
+
+database/
+
+models/
+
+interfaces/
+
+middlewares/
+
+app.ts
+
+Endpoints:
+
+GET /clientes
+
+POST /clientes
+
+Validaciones:
+
+- Campos obligatorios.
+- Código único.
+- Teléfono válido.
+- Manejo centralizado de errores.
+- Respuestas HTTP correctas.
+- async/await.
+- Sin callbacks.
+
+---
+
+# Frontend Angular
+
+Crear únicamente:
+
+cliente-form
+
+cliente-list
+
+Utilizar:
+
+Reactive Forms
+
+HttpClient
+
+Interfaces
+
+Tipado estricto.
+
+Después de guardar un cliente:
+
+Actualizar automáticamente la tabla.
+
+No recargar la página.
+
+---
+
+# Servicio Angular
+
+ClienteService
+
+Debe contener:
+
+obtenerClientes()
+
+agregarCliente()
+
+La URL base debe configurarse mediante environments.
+
+No escribir URLs directamente en los componentes.
+
+---
+
+# Persistencia
+
+Toda la información debe almacenarse en PostgreSQL.
+
+Además, mantener sincronizado:
+
+backend/data/clientes.json
+
+como respaldo.
+
+---
+
+# Configuración
+
+Generar completamente:
+
+package.json (raíz)
+
+backend/package.json
+
+frontend/package.json
+
+pnpm-workspace.yaml
+
+tsconfig.json
+
+angular.json
+
+.env.example
+
+---
+
+# Scripts del package.json principal
+
+Quiero exactamente estos comandos funcionando:
+
+```
+pnpm install
+pnpm build
+pnpm start
+```
+
+Todos deben ejecutarse desde la carpeta raíz.
+
+No quiero comandos adicionales para backend o frontend.
+
+---
+
+# README
+
+Crear un README detallado explicando:
+
+- Instalación con pnpm.
+- Configuración de PostgreSQL.
+- Variables de entorno.
+- Creación de la base de datos.
+- Ejecución completa del proyecto.
+- Compilación.
+- Pruebas de la API.
+- Ejecución del frontend.
+
+---
+
+# Entrega
+
+Genera absolutamente todos los archivos.
+
+No omitas ninguno.
+
+Para cada archivo indica primero su ruta exacta.
+
+Ejemplo:
+
+backend/src/controllers/clientes.controller.ts
+
+Después muestra el contenido completo.
+
+No utilices pseudocódigo.
+
+No dejes funciones incompletas.
+
+Todo debe ser funcional y listo para ejecutar.
+
+Si la respuesta alcanza el límite de longitud, continúa automáticamente en la siguiente respuesta exactamente donde quedó, sin resumir ni omitir archivos.
