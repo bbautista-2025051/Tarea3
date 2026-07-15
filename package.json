@@ -1,0 +1,16 @@
+{
+  "name": "aplicacion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplicacion de administracion de clientes (monorepo pnpm: backend Express/TS + frontend Angular)",
+  "scripts": {
+    "build": "pnpm --filter backend build && pnpm --filter frontend build",
+    "start": "concurrently -n BACKEND,FRONTEND -c blue,green \"pnpm --filter backend start\" \"pnpm --filter frontend start\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

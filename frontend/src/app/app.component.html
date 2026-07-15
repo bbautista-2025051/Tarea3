@@ -1,0 +1,21 @@
+<div class="pagina">
+  <header class="encabezado">
+    <span class="encabezado__marca">Cartera</span>
+    <h1 class="encabezado__titulo">Administracion de clientes</h1>
+    <p class="encabezado__subtitulo">
+      Registra clientes nuevos y consulta el listado completo.
+    </p>
+  </header>
+
+  <main class="contenido">
+    <section class="tarjeta tarjeta--formulario">
+      <h2 class="tarjeta__titulo">Nuevo cliente</h2>
+      <app-cliente-form (clienteCreado)="onClienteCreado()"></app-cliente-form>
+    </section>
+
+    <section class="tarjeta tarjeta--listado">
+      <h2 class="tarjeta__titulo">Clientes registrados</h2>
+      <app-cliente-list [recargar]="recargarListado()"></app-cliente-list>
+    </section>
+  </main>
+</div>

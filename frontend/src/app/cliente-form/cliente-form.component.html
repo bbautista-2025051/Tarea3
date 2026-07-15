@@ -1,0 +1,69 @@
+<form class="formulario" [formGroup]="formulario" (ngSubmit)="onEnviar()">
+  <div class="campo">
+    <label for="codigoCliente">Codigo de cliente</label>
+    <input
+      id="codigoCliente"
+      type="text"
+      formControlName="codigoCliente"
+      placeholder="Ej. CLI-004"
+      [class.campo__input--error]="campoInvalido('codigoCliente')"
+    />
+    @if (campoInvalido('codigoCliente')) {
+      <span class="campo__error">El codigo de cliente es obligatorio.</span>
+    }
+  </div>
+
+  <div class="campo">
+    <label for="nombreCliente">Nombre</label>
+    <input
+      id="nombreCliente"
+      type="text"
+      formControlName="nombreCliente"
+      placeholder="Nombre completo"
+      [class.campo__input--error]="campoInvalido('nombreCliente')"
+    />
+    @if (campoInvalido('nombreCliente')) {
+      <span class="campo__error">El nombre es obligatorio.</span>
+    }
+  </div>
+
+  <div class="campo">
+    <label for="direccionCliente">Direccion</label>
+    <input
+      id="direccionCliente"
+      type="text"
+      formControlName="direccionCliente"
+      placeholder="Direccion completa"
+      [class.campo__input--error]="campoInvalido('direccionCliente')"
+    />
+    @if (campoInvalido('direccionCliente')) {
+      <span class="campo__error">La direccion es obligatoria.</span>
+    }
+  </div>
+
+  <div class="campo">
+    <label for="telefono">Telefono</label>
+    <input
+      id="telefono"
+      type="text"
+      formControlName="telefono"
+      placeholder="Ej. 502-2222-1111"
+      [class.campo__input--error]="campoInvalido('telefono')"
+    />
+    @if (campoInvalido('telefono')) {
+      <span class="campo__error">Ingresa un telefono valido.</span>
+    }
+  </div>
+
+  @if (errorServidor()) {
+    <p class="alerta alerta--error">{{ errorServidor() }}</p>
+  }
+
+  @if (mensajeExito()) {
+    <p class="alerta alerta--exito">{{ mensajeExito() }}</p>
+  }
+
+  <button type="submit" class="boton" [disabled]="enviando()">
+    {{ enviando() ? "Guardando..." : "Guardar cliente" }}
+  </button>
+</form>

@@ -1,0 +1,41 @@
+.estado {
+  color: var(--color-ink-soft);
+  font-size: 14px;
+  margin: 0;
+}
+
+.estado--error {
+  color: var(--color-danger);
+}
+
+.tabla-contenedor {
+  overflow-x: auto;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tabla thead th {
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  border-bottom: 2px solid var(--color-border);
+  padding: 10px 12px;
+}
+
+.tabla tbody td {
+  padding: 12px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-ink);
+}
+
+.tabla tbody tr:hover {
+  background: var(--color-bg);
+}
